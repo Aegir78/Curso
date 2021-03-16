@@ -473,6 +473,58 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &1222358692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1222358694}
+  - component: {fileID: 1222358693}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1222358693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222358692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18310b9ca23bee4a9762b2ad9524175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPrefabs:
+  - {fileID: 3683915421111250690, guid: 97d3d69fd64c28845b266857957f597a, type: 3}
+  - {fileID: 773213764106618130, guid: e0f32e6c5b815bc44bd50e488b06acc7, type: 3}
+  - {fileID: 8453388034600747665, guid: 7ab4f901aa453e546bff4b3ba21fad69, type: 3}
+  - {fileID: 8148808297895286347, guid: eeb63f9aa9f7cd542b9e8d6cb981f0d5, type: 3}
+  - {fileID: 985041308572907243, guid: c015def8dcf3afd42a4f6c49949b9479, type: 3}
+  - {fileID: 0}
+  - {fileID: 1363427566223874527, guid: 300738765a82b4c48b21eabb57ea924c, type: 3}
+  spawnRate: 1
+--- !u!4 &1222358694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222358692}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611319330
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +539,7 @@ GameObject:
   - component: {fileID: 1611319331}
   m_Layer: 0
   m_Name: Sensor
-  m_TagString: Untagged
+  m_TagString: Kill Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
