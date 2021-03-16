@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Developer\Projects\Curso\07QuickClic\07 Quick Clic" t="IncludeRecursive">
+      <e p="07 Quick Clic.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="_Scripts" t="Include">
+          <e p="Target.cs" t="Include" />
+        </e>
+        <e p="Course Library" t="Include">
+          <e p="_Source_Files" t="Include">
+            <e p="_LICENSE.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="DestroyAfterDelay.cs" t="Include" />
+            </e>
+            <e p="SimpleFX" t="Include">
+              <e p="Materials" t="Include">
+                <e p="UnlitVertexColour_Alpha.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Fonts" t="Include">
+            <e p="Baloo_Chettan" t="Include">
+              <e p="OFL.txt" t="Include" />
+            </e>
+            <e p="Exo_2" t="Include">
+              <e p="OFL.txt" t="Include" />
+            </e>
+            <e p="Indie_Flower" t="Include">
+              <e p="OFL.txt" t="Include" />
+            </e>
+            <e p="Margarine" t="Include">
+              <e p="OFL.txt" t="Include" />
+            </e>
+            <e p="Oswald" t="Include">
+              <e p="OFL.txt" t="Include" />
+            </e>
+            <e p="Roboto_Condensed" t="Include">
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\aegir\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\aegir\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_07 Quick Clic.271891896.00" t="ExcludeRecursive" />
+  </component>
+</project>
