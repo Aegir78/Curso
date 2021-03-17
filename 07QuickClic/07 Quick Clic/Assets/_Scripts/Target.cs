@@ -11,6 +11,11 @@ public class Target : MonoBehaviour
     xRange = 4,
     ySpanwPos = -6;
 
+    private GameManager gameManager;
+
+    public int pointValue;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +25,14 @@ public class Target : MonoBehaviour
          //añadimos fuerza y torque aleatorios
        _rigidbody.AddForce(RandomForce(),
        ForceMode.Impulse);
-
        _rigidbody.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(),
         ForceMode.Impulse);
 
        //spawn aleatorio
        transform.position = RandomSpawnPos();
 
+        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); buscamos por nombre
+        gameManager = FindObjectOfType<GameManager>();// o buscamos por tipo, no hace falta poner GameObject
     }
 
     /// <summary>
@@ -59,6 +65,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()//cuandop se cliclea
     {
         Destroy(gameObject);
+        gameManager.UpdateScore(pointValue);
     }
 
     private void OnTriggerEnter(Collider other)//para destruir objeto al colisionar abajo
@@ -66,6 +73,11 @@ public class Target : MonoBehaviour
         if (other.CompareTag("Kill Zone"))
         {
             Destroy(gameObject);
+            if (pointValue > 0)
+            { 
+                gameManager.UpdateScore(-pointValue);
+            }
+            
         }
         
     }
