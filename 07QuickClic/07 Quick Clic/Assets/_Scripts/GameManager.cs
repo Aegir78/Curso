@@ -2,20 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameState
+    {
+        loading,
+        inGame,
+        gameOver
+    }
+
+    public GameState gameState;
+
+
     public List<GameObject> targetPrefabs; //mejor hacer List que array
     private float spawnRate = 1.0f;
 
     public TextMeshProUGUI scoreText;
+
+    public Button restartButton;
 
     private int _score;//esta variable tendrá el valor
     private int score
     {
         set
         {
-            _score = Mathf.Max(value, 0);
+            _score = Mathf.Clamp(value, 0, 99999);
         }
         get
         {
@@ -23,9 +37,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public TextMeshProUGUI gameOverText;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameState = GameState.inGame;
+
         StartCoroutine(SpawnTarget());
 
         score = 0;
@@ -34,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnTarget()
     {
-        while (true)
+        while (gameState == GameState.inGame)
         {
             yield return new WaitForSeconds(spawnRate);//espera 1 seg
             int index = Random.Range(0, targetPrefabs.Count);//elige uno aleatoriamente
@@ -50,5 +68,19 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToAdd;//la puntuación se suma a la puntuación k se ha de añadir
         scoreText.text = "Score\n" + score;//pintamos el score
+    }
+
+    public void GameOver()
+    {
+        gameState = GameState.gameOver;
+
+        gameOverText.gameObject.SetActive(true);
+
+        restartButton.gameObject.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); //recarga la escena actual
     }
 }

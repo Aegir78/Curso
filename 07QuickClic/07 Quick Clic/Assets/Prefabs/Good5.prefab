@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 109004925965138055}
   m_Layer: 6
   m_Name: Good5
-  m_TagString: Untagged
+  m_TagString: Good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,8 +112,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.32699585, y: 0.32699984, z: 0.32700062}
-  m_Center: {x: 0, y: 0.16349992, z: 0}
+  m_Size: {x: 0.32699585, y: 0.38514963, z: 0.38515043}
+  m_Center: {x: 0, y: 0.16737656, z: 0.0019383356}
 --- !u!114 &1381940203763308805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointValue: 18
+  explosionParticle: {fileID: 2088871590894813759, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
 --- !u!96 &109004925965138055
 TrailRenderer:
   serializedVersion: 2

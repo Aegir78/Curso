@@ -13,7 +13,10 @@ public class Target : MonoBehaviour
 
     private GameManager gameManager;
 
+    [Range(-100, 100)]
     public int pointValue;
+
+    public ParticleSystem explosionParticle;
 
 
 
@@ -64,8 +67,13 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()//cuandop se cliclea
     {
-        Destroy(gameObject);
-        gameManager.UpdateScore(pointValue);
+        if (gameManager.gameState == GameManager.GameState.inGame)
+        {
+            Destroy(gameObject);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            gameManager.UpdateScore(pointValue);
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)//para destruir objeto al colisionar abajo
@@ -73,10 +81,11 @@ public class Target : MonoBehaviour
         if (other.CompareTag("Kill Zone"))
         {
             Destroy(gameObject);
-            if (pointValue > 0)
-            { 
-                gameManager.UpdateScore(-pointValue);
-            }
+
+            if (gameObject.CompareTag("Good"))
+                { 
+                gameManager.GameOver();
+                }
             
         }
         
