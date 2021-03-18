@@ -39,10 +39,16 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI gameOverText;
 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject titleScreen;// El panel del UI también es un objeto
+
+    
+    /// <summary>
+    /// Método que inicia la partida cambiando el valor del estado del juego
+    /// </summary>
+    public void StartGame()
     {
         gameState = GameState.inGame;
+        titleScreen.gameObject.SetActive(false);
 
         StartCoroutine(SpawnTarget());
 
