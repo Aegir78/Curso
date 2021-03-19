@@ -9,6 +9,9 @@ public class DificultyButton : MonoBehaviour
 
     private GameManager gameManager;
 
+    [Range(1, 3)]
+    public int difficulty;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,6 @@ public class DificultyButton : MonoBehaviour
     {
         Debug.Log("El botón " + gameObject.name + " ha sido pulsado.");
 
-        gameManager.StartGame();
+        gameManager.StartGame(difficulty);
     }
 }

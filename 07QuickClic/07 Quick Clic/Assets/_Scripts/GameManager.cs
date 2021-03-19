@@ -41,14 +41,25 @@ public class GameManager : MonoBehaviour
 
     public GameObject titleScreen;// El panel del UI también es un objeto
 
-    
+    public int difficulty;//asignamos dificultad
+
+    private void Start()
+    {
+        ShowMaxScore();
+    }
+
+    public ParticleSystem explosionMaxScore;
+
     /// <summary>
     /// Método que inicia la partida cambiando el valor del estado del juego
     /// </summary>
-    public void StartGame()
+    /// <param name="difficulty">Número entero que indica el grado de dificultad del juego</param>
+    public void StartGame(int difficulty)
     {
         gameState = GameState.inGame;
         titleScreen.gameObject.SetActive(false);
+
+        spawnRate /= difficulty; // es lo mismo k spawnRate = spawnRate/difficulty
 
         StartCoroutine(SpawnTarget());
 
@@ -76,8 +87,27 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score\n" + score;//pintamos el score
     }
 
+    private const string MAX_SCORE = "MAX_SCORE";
+    public void ShowMaxScore()
+    {
+        int maxScore = PlayerPrefs.GetInt(MAX_SCORE, 0);
+        scoreText.text = "Max Score\n" + maxScore;
+    }
+
+
+    private void SetMaxScore()
+    {
+        int maxScore = PlayerPrefs.GetInt(MAX_SCORE, 0);
+        if (score > maxScore)
+        {
+            PlayerPrefs.SetInt(MAX_SCORE, score);
+            Instantiate(explosionMaxScore, explosionMaxScore.transform.position, explosionMaxScore.transform.rotation);
+        }
+    }
     public void GameOver()
     {
+        SetMaxScore();
+
         gameState = GameState.gameOver;
 
         gameOverText.gameObject.SetActive(true);

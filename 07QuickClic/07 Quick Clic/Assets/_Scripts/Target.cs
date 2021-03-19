@@ -65,7 +65,7 @@ public class Target : MonoBehaviour
         return new Vector3(Random.Range(-xRange, xRange), ySpanwPos);//z=0
     }
 
-    private void OnMouseDown()//cuandop se cliclea
+    private void OnMouseOver()//cuandop se cliclea
     {
         if (gameManager.gameState == GameManager.GameState.inGame)
         {
