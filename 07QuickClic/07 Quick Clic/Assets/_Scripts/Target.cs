@@ -5,10 +5,10 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private Rigidbody _rigidbody;//como va por fisicas usamos rigidbody
-    private float minForce = 12, 
+    private float minForce = 12,
     maxForce = 20,
     maxTorque = 10,
-    xRange = 4,
+    xRange = 6.8f,
     ySpanwPos = -6;
 
     private GameManager gameManager;
@@ -17,6 +17,8 @@ public class Target : MonoBehaviour
     public int pointValue;
 
     public ParticleSystem explosionParticle;
+
+   
 
 
 
@@ -65,13 +67,15 @@ public class Target : MonoBehaviour
         return new Vector3(Random.Range(-xRange, xRange), ySpanwPos);//z=0
     }
 
-    private void OnMouseOver()//cuandop se cliclea
+    private void OnMouseOver()//cuandop se pasa el mouse por encima
     {
         if (gameManager.gameState == GameManager.GameState.inGame)
         {
+            
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             gameManager.UpdateScore(pointValue);
+            
         }
         
     }

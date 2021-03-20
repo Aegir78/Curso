@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
 
     public List<GameObject> targetPrefabs; //mejor hacer List que array
-    private float spawnRate = 1.0f;
+    private float spawnRate = 1.5f;
 
     public TextMeshProUGUI scoreText;
 
@@ -46,9 +46,15 @@ public class GameManager : MonoBehaviour
     private int numberOfLives = 4;
     public List<GameObject> lives;
 
+    public AudioClip gameOverSound, spawnSound, winSound;
+    private AudioSource _audiosource;
+
+
+
     private void Start()
     {
         ShowMaxScore();
+        _audiosource = GetComponent<AudioSource>();
     }
 
     public ParticleSystem explosionMaxScore;
@@ -83,6 +89,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(spawnRate);//espera 1 seg
             int index = Random.Range(0, targetPrefabs.Count);//elige uno aleatoriamente
             Instantiate(targetPrefabs[index]);//lo saca en pantalla
+            _audiosource.PlayOneShot(spawnSound, 1);
         }
     }
 
@@ -94,6 +101,7 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToAdd;//la puntuación se suma a la puntuación k se ha de añadir
         scoreText.text = "Score\n" + score;//pintamos el score
+        _audiosource.PlayOneShot(winSound, 1);
     }
 
     private const string MAX_SCORE = "MAX_SCORE";
@@ -116,9 +124,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         numberOfLives--;
+        
 
         if (numberOfLives>=0)
         {
+            _audiosource.PlayOneShot(gameOverSound, 1);
+
             Image heartImage = lives[numberOfLives].GetComponent<Image>();
             var tempColor = heartImage.color;
             tempColor.a = 0.3f;
@@ -135,6 +146,7 @@ public class GameManager : MonoBehaviour
             gameOverText.gameObject.SetActive(true);
 
             restartButton.gameObject.SetActive(true);
+;
         }
         
     }
