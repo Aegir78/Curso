@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {   
         //movimiento (vector3 normalizado para que siempre sea igual de largo)
         float horizontal = Input.GetAxis("Horizontal");
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         //dirección deseada = donde miro ahora, donde quiero mirar,
         //velocidad giro*tiempo, magnitud máxima del cambio
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward,
-            movement, turnSpeed * Time.deltaTime, 0f);
+            movement, turnSpeed * Time.fixedDeltaTime, 0f);
 
         //Rotamos con Quaternion
         rotation = Quaternion.LookRotation(desiredForward);
