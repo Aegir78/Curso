@@ -34,14 +34,29 @@ public class Observer : MonoBehaviour
         {
             Vector3 direction = player.position - transform.position + Vector3.up;
             Ray ray = new Ray(transform.position, direction);
+
+            Debug.DrawRay(transform.position, direction, 
+                Color.magenta, Time.deltaTime, true);
+
             RaycastHit raycastHit;
             if (Physics.Raycast(ray, out raycastHit))
             {
                 if (raycastHit.collider.transform == player)
                 {
-
+                    gameEnding.CatchPlayer();
                 }
             }
         }
+
+
+
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, 0.1f);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, player.position + Vector3.up);
     }
 }
