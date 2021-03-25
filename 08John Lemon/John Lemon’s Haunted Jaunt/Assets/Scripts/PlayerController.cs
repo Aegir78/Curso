@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
+    private AudioSource _audiosource;
+
     [SerializeField]
     private float turnSpeed;
 
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
         //Llamamos la componente de rigidbody
         _rigidbody = GetComponent<Rigidbody>();
+
+        _audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +48,18 @@ public class PlayerController : MonoBehaviour
 
         //a cada frame hay k ver si estamos caminando o no
         _animator.SetBool("IsWalking", isWalking);
+
+        if (isWalking)
+        {
+            if (!_audiosource.isPlaying)
+            {
+                _audiosource.Play();
+            }
+        }
+        else
+        {
+            _audiosource.Stop();
+        }
 
         //para hacer un movimiento más suave entre un comienzo y un destino,
         // en este caso hay k rotar(vector)
