@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: fcf1d75d667f3024f8ad13bde5f46273
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lemongrab
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b35776ffbd2b3a345b5a543799feefe6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
