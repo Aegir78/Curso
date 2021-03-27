@@ -6,8 +6,8 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637522861018170771
-    m_Hash: 2193220613
+      ticks: 637524420307320019
+    m_Hash: 3408693076
   m_LockFileStatus:
     m_FilePath: "C:/Developer/Projects/Curso/08John Lemon/John Lemon\u2019s Haunted
       Jaunt/Packages/packages-lock.json"
@@ -15,7 +15,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637522861038545791
+      ticks: 637524421614427667
     m_Hash: 3248463550
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -438,8 +438,10 @@ m_PackageAssets:
         - 2.6.2
         - 2.6.3-preview.2
         - 2.6.3
+        - 2.6.4
         - 2.7.1
         - 2.7.2
+        - 2.7.3
         compatible:
         - 2.5.0
         - 2.6.0-preview.2
@@ -453,9 +455,11 @@ m_PackageAssets:
         - 2.6.2
         - 2.6.3-preview.2
         - 2.6.3
+        - 2.6.4
         - 2.7.1
         - 2.7.2
-        verified: 2.6.3
+        - 2.7.3
+        verified: 2.6.4
       dependencies: []
       resolvedDependencies: []
       keywords:

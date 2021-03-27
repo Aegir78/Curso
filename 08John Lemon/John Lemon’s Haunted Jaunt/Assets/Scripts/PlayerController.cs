@@ -1,7 +1,7 @@
-#if UNITY_ANDROID
-    #define USING_MOBILE
+//#if UNITY_ANDROID
+    //#define USING_MOBILE
 
-#endif
+//#endif
 
 
 
@@ -40,23 +40,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-#if USING_MOBILE //directiva de precompilado
-            float horizontal = Input.GetAxis("MOUSE X");
-            float vertical = Input.GetAxis("MOUSE Y");
-            if (Input.touchCount > 0)
-	            {
-                horizontal = Input.touches[0].deltaPosition.x;
-                vertical = Input.touches[0].deltaPosition.y;
-	            }
-#else
+//#if USING_MOBILE //directiva de precompilado
+            //float horizontal = Input.GetAxis("MOUSE X");
+            //float vertical = Input.GetAxis("MOUSE Y");
+            //if (Input.touchCount > 0)
+	            //{
+                //horizontal = Input.touches[0].deltaPosition.x;
+                //vertical = Input.touches[0].deltaPosition.y;
+	            //}
+//#else
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        //float horizontal = Input.GetAxis("Horizontal");
+        //float vertical = Input.GetAxis("Vertical");
 
-#endif
+//#endif
 
         //movimiento (vector3 normalizado para que siempre sea igual de largo)
-        
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
         movement.Set(horizontal, 0, vertical);
         movement.Normalize();
 
